@@ -21,7 +21,7 @@ def test_invalid_package_sequence(package_dir, verifier):
     package = os.path.join(package_dir, 'test_-file.tar.bz2')
 
     with pytest.raises(PackageError) as excinfo:
-        verifier.verify_package(path_to_package=package, exit_on_error=false)
+        verifier.verify_package(path_to_package=package, exit_on_error=False)
 
     assert ('PackageError: '
             'Found invalid sequence "_-" '
@@ -32,7 +32,7 @@ def test_invalid_package_extension(package_dir, verifier):
     package = os.path.join(package_dir, 'testfile.zip')
 
     with pytest.raises(PackageError) as excinfo:
-        verifier.verify_package(path_to_package=package, exit_on_error=false)
+        verifier.verify_package(path_to_package=package, exit_on_error=False)
 
     assert ("PackageError: "
             'Found package with invalid extension ".zip"' in str(excinfo))
